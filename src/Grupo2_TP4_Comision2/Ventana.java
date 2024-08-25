@@ -14,6 +14,10 @@ public class Ventana extends javax.swing.JFrame {
     // > Pagnone Patricia - DNI
     // > Muñoz Maycol - DNI
     
+    public Ventana() {
+        initComponents();
+    }
+    
     @SuppressWarnings("unchecked") // NO modificar el Generated Code de aqui abajo
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,18 +37,6 @@ public class Ventana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public static void main(String args[]) {
-        
-        /////////////////// Ventana Propiedades /////////////////////////////////
-        JFrame ventana = new JFrame("NombreVentana");
-        ventana.setBackground(Color.white);
-        ventana.setSize(400,400); //Valores por defecto por ahora
-        ventana.setVisible(true);
-        /////////////////////////////////////////////////////////////////////////
-        
-        
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
