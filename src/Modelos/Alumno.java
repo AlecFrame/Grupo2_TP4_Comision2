@@ -1,6 +1,7 @@
 package Modelos;
         
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 public class Alumno {
     private int legajo;
@@ -43,7 +44,15 @@ public class Alumno {
             System.out.println(apellido+" "+nombre+" Se inscribio a: "+m.getNombre());
         }
         else
-            System.out.println(apellido+" "+nombre+" Ya está inscrito en esta materia");
+            System.out.println(apellido+" "+nombre+" Ya está inscripto en esta materia");
+    }
+    
+    public void agregarMateriaVentana(Materia m){
+        if(materias.add(m)){
+            JOptionPane.showMessageDialog(null, apellido+" "+nombre+" Se inscribió a: "+m.getNombre());
+        }
+        else
+            JOptionPane.showMessageDialog(null,apellido+" "+nombre+" Ya está inscripto en esta materia","Advertencia",JOptionPane.WARNING_MESSAGE);
     }
     
     public int cantidadDeMaterias(){

@@ -178,10 +178,13 @@ public class FormMaterias extends javax.swing.JInternalFrame {
             Integer id = Integer.valueOf(jtfId.getText());
             String nombre = jtfNombre.getText();
             Integer anio = Integer.valueOf(jtfAnio.getText());
-            desactivarMateria();
             Materia m = new Materia(id,anio,nombre);
-            listaMateria.add(m);
-            limpiarMateria();
+            if (listaMateria.add(m)) {
+                listaMateria.add(m);
+                desactivarMateria();
+                limpiarMateria();
+            }else
+                JOptionPane.showMessageDialog(this, "Código de Materia ya existente","Advertencia",JOptionPane.WARNING_MESSAGE);
         }else
             JOptionPane.showMessageDialog(this, "Se dejo una casilla vacia");
     }//GEN-LAST:event_jbGuardarActionPerformed

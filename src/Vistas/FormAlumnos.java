@@ -172,7 +172,7 @@ public class FormAlumnos extends javax.swing.JInternalFrame {
         try {
             Integer legajo = Integer.parseInt(jtfLegajo.getText());
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Sólo numeros");
+            JOptionPane.showMessageDialog(this, "Sólo numeros","Advertencia",JOptionPane.WARNING_MESSAGE);
             jtfLegajo.requestFocus();
         }
     }//GEN-LAST:event_jtfLegajoFocusLost
@@ -187,9 +187,12 @@ public class FormAlumnos extends javax.swing.JInternalFrame {
         String nombre = jtfNombre.getText();
         String apellido = jtfApellido.getText();
         Alumno a = new Alumno(legajo, apellido, nombre);
-        listaAlumno.add(a);
-        limpiarAlumno();
-        desactivarAlumno();
+        if (listaAlumno.add(a)) {
+            listaAlumno.add(a);
+            limpiarAlumno();
+            desactivarAlumno();
+        }else
+            JOptionPane.showMessageDialog(this, "Legajo de Alumno ya existente","Advertencia",JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jtfApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfApellidoFocusLost

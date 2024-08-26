@@ -40,10 +40,8 @@ public class Materia {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + this.idMateria;
-        hash = 89 * hash + this.anio;
-        hash = 89 * hash + Objects.hashCode(this.nombre);
+        int hash = 3;
+        hash = 47 * hash + this.idMateria;
         return hash;
     }
 
@@ -59,17 +57,11 @@ public class Materia {
             return false;
         }
         final Materia other = (Materia) obj;
-        if (this.idMateria != other.idMateria) {
-            return false;
-        }
-        if (this.anio != other.anio) {
-            return false;
-        }
-        return Objects.equals(this.nombre, other.nombre);
+        return this.idMateria == other.idMateria;
     }
 
     @Override
     public String toString() {
-        return nombre+", id: "+idMateria+", año de curso: "+anio;
+        return "id: "+idMateria+" "+nombre+", año "+anio;
     }
 }

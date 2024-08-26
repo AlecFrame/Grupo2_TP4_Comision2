@@ -4,6 +4,7 @@ package Vistas;
 import Modelos.Alumno;
 import Modelos.Materia;
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 public class FormInscripcion extends javax.swing.JInternalFrame {
     HashSet<Alumno> listaAlumno;
@@ -52,6 +53,11 @@ public class FormInscripcion extends javax.swing.JInternalFrame {
 
         jbInscribir.setForeground(new java.awt.Color(0, 153, 204));
         jbInscribir.setText("Inscribir");
+        jbInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInscribirActionPerformed(evt);
+            }
+        });
 
         jbSalir.setForeground(new java.awt.Color(0, 153, 204));
         jbSalir.setText("Salir");
@@ -117,6 +123,16 @@ public class FormInscripcion extends javax.swing.JInternalFrame {
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscribirActionPerformed
+        try {
+        Alumno a = (Alumno)jcbAlumno.getSelectedItem();
+        Materia m = (Materia)jcbMateria.getSelectedItem();
+        a.agregarMateriaVentana(m);
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Hay una casilla vacia","ERROR",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jbInscribirActionPerformed
     
     public void llenarComboAlumno() {
         for (Alumno a: listaAlumno) {
