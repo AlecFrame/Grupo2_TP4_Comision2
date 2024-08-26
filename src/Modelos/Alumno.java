@@ -1,18 +1,17 @@
 package Modelos;
         
-import java.util.ArrayList;
-
+import java.util.HashSet;
 
 public class Alumno {
     private int legajo;
     private String apellido, nombre;
-    private ArrayList<Materia> materias;
+    private HashSet<Materia> materias;
 
     public Alumno(int legajo, String apellido, String nombre) {
         this.legajo = legajo;
         this.apellido = apellido;
         this.nombre = nombre;
-        materias= new ArrayList();
+        materias = new HashSet();
     }
 
     public int getLegajo() {
@@ -40,28 +39,41 @@ public class Alumno {
     }
     
     public void agregarMateria(Materia m){
-        if(materias.isEmpty()){
-            materias.add(m);
-            System.out.println("Agrego materia: "+m.getNombre());
+        if(materias.add(m)){
+            System.out.println(apellido+" "+nombre+" Se inscribio a: "+m.getNombre());
         }
-        else {
-            boolean materiaExistente = false;
-            for (Materia materia : materias) {
-                if (materia.equals(m)) {
-                    System.out.println("Ya está inscrito en esta materia");
-                    materiaExistente = true;
-                    break;
-                }
-            }
-            if (!materiaExistente) {
-                materias.add(m);
-                System.out.println("Agrego materia: " + m.getNombre());
-            }
-        }
-    
+        else
+            System.out.println(apellido+" "+nombre+" Ya está inscrito en esta materia");
     }
     
     public int cantidadDeMaterias(){
         return materias.size();
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 71 * hash + this.legajo;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Alumno other = (Alumno) obj;
+        return this.legajo == other.legajo;
+    }
+
+    @Override
+    public String toString() {
+        return "Alumno " + "legajo=" + legajo + ", apellido=" + apellido + ", nombre=" + nombre;
     }
 }
