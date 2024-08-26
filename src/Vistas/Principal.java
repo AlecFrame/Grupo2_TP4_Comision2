@@ -33,9 +33,9 @@ public class Principal extends javax.swing.JFrame {
         menu3 = new java.awt.Menu();
         menu4 = new java.awt.Menu();
         jdpPrincipal = new javax.swing.JDesktopPane();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jbMaterias = new javax.swing.JButton();
+        jbAlumno = new javax.swing.JButton();
+        jbInscripcion = new javax.swing.JButton();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -64,33 +64,33 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 456, Short.MAX_VALUE)
         );
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 204));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/materia.png"))); // NOI18N
-        jButton1.setText("Materias");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbMaterias.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbMaterias.setForeground(new java.awt.Color(0, 153, 204));
+        jbMaterias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/materia.png"))); // NOI18N
+        jbMaterias.setText("Materias");
+        jbMaterias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbMateriasActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 204));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/alumno.png"))); // NOI18N
-        jButton2.setText("Alumnos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbAlumno.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbAlumno.setForeground(new java.awt.Color(0, 153, 204));
+        jbAlumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/alumno.png"))); // NOI18N
+        jbAlumno.setText("Alumnos");
+        jbAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbAlumnoActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 204));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/inscripcio.png"))); // NOI18N
-        jButton3.setText("Inscripcion");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbInscripcion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jbInscripcion.setForeground(new java.awt.Color(0, 153, 204));
+        jbInscripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/inscripcio.png"))); // NOI18N
+        jbInscripcion.setText("Inscripcion");
+        jbInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbInscripcionActionPerformed(evt);
             }
         });
 
@@ -101,11 +101,11 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jdpPrincipal, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jbMaterias)
                 .addGap(49, 49, 49)
-                .addComponent(jButton2)
+                .addComponent(jbAlumno)
                 .addGap(40, 40, 40)
-                .addComponent(jButton3)
+                .addComponent(jbInscripcion)
                 .addGap(63, 63, 63))
         );
         layout.setVerticalGroup(
@@ -113,9 +113,9 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jbMaterias)
+                    .addComponent(jbAlumno)
+                    .addComponent(jbInscripcion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jdpPrincipal))
         );
@@ -123,7 +123,7 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMateriasActionPerformed
         FormMaterias materias = new FormMaterias(listaMateria);
         jdpPrincipal.add(materias);
         materias.setVisible(true);
@@ -132,9 +132,9 @@ public class Principal extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbMateriasActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlumnoActionPerformed
         FormAlumnos alumnos = new FormAlumnos(listaAlumno);
         jdpPrincipal.add(alumnos);
         alumnos.setVisible(true);
@@ -143,9 +143,9 @@ public class Principal extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbAlumnoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscripcionActionPerformed
         FormInscripcion inscripcion = new FormInscripcion(listaAlumno, listaMateria);
         jdpPrincipal.add(inscripcion);
         inscripcion.setVisible(true);
@@ -154,12 +154,12 @@ public class Principal extends javax.swing.JFrame {
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbInscripcionActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jbAlumno;
+    private javax.swing.JButton jbInscripcion;
+    private javax.swing.JButton jbMaterias;
     private javax.swing.JDesktopPane jdpPrincipal;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;

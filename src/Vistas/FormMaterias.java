@@ -3,6 +3,7 @@ package Vistas;
 
 import Modelos.Materia;
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 public class FormMaterias extends javax.swing.JInternalFrame {
     HashSet<Materia> listaMateria;
@@ -36,14 +37,29 @@ public class FormMaterias extends javax.swing.JInternalFrame {
         jLabel2.setForeground(new java.awt.Color(0, 153, 204));
         jLabel2.setText("CODIGO DE MATERIA:");
 
+        jtfId.setEnabled(false);
+        jtfId.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfIdFocusLost(evt);
+            }
+        });
+        jtfId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfIdActionPerformed(evt);
+            }
+        });
+
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 204));
         jLabel3.setText("NOMBRE DE LA  MATERIA:");
+
+        jtfNombre.setEnabled(false);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 204));
         jLabel4.setText("AÑO AL QUE PERTENECE:");
 
+        jtfAnio.setEnabled(false);
         jtfAnio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfAnioActionPerformed(evt);
@@ -51,10 +67,26 @@ public class FormMaterias extends javax.swing.JInternalFrame {
         });
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
+        jbGuardar.setEnabled(false);
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,6 +154,61 @@ public class FormMaterias extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfAnioActionPerformed
 
+    private void jtfIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfIdActionPerformed
+
+    }//GEN-LAST:event_jtfIdActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        activarMateria();
+        limpiarMateria();
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jtfIdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfIdFocusLost
+        try {
+            Integer id = Integer.parseInt(jtfId.getText());
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Sólo numeros");
+            jtfId.requestFocus();
+        }
+    }//GEN-LAST:event_jtfIdFocusLost
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        if (!jtfNombre.getText().equalsIgnoreCase("")&&!jtfAnio.getText().equalsIgnoreCase("")&&!jtfId.getText().equalsIgnoreCase(""))
+        {
+            Integer id = Integer.valueOf(jtfId.getText());
+            String nombre = jtfNombre.getText();
+            Integer anio = Integer.valueOf(jtfAnio.getText());
+            desactivarMateria();
+            Materia m = new Materia(id,anio,nombre);
+            listaMateria.add(m);
+            limpiarMateria();
+        }else
+            JOptionPane.showMessageDialog(this, "Se dejo una casilla vacia");
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+    
+    public void desactivarMateria() {
+        jtfId.setEnabled(false);
+        jtfNombre.setEnabled(false);
+        jtfAnio.setEnabled(false);
+        jbGuardar.setEnabled(false);
+    }
+    
+    public void activarMateria() {
+        jtfId.setEnabled(true);
+        jtfNombre.setEnabled(true);
+        jtfAnio.setEnabled(true);
+        jbGuardar.setEnabled(true);
+    }
+    
+    public void limpiarMateria() {
+        jtfId.setText("");
+        jtfNombre.setText("");
+        jtfAnio.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

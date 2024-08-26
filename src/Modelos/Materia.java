@@ -67,6 +67,9 @@ public class Materia {
         }
         return Objects.equals(this.nombre, other.nombre);
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return nombre+", id: "+idMateria+", año de curso: "+anio;
+    }
 }
